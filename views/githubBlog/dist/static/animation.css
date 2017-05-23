@@ -1,0 +1,56 @@
+@keyframes borderShow
+{
+  from {
+    width: 4%;
+    right: 48%;
+    left: 48%
+  }
+  to {
+    left: 15%;
+    right: 15%;
+    width: 70%
+  }
+}
+
+@keyframes headerInfo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes image-wrapper-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes navList {
+  from {
+    opacity: 0;
+    left: 40%;
+    right: 40%;
+    width: 20%;
+    bottom: 0;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@keyframes arrow {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+
+}
