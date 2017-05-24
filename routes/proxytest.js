@@ -8,4 +8,5 @@ var mongoose = require('mongoose')
 var Essays = require('../app/controllers/essays')
 
 router.get('/essay', Essays.essays)
+router.get('/essay/detail', Essays.essaysDetail)
 module.exports = router
