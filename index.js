@@ -3,6 +3,7 @@ var ejs = require('ejs')
 
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser')
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/users');
@@ -18,6 +19,9 @@ app.set('views', path.join(__dirname, './views'));
 app.engine('html', ejs.__express);
 app.set('view engine', 'html');
 app.use(express.static(path.join(__dirname,'./views')));
+
+//中间件
+app.use(bodyParser())
 
 //挂载路由
 app.use('/', indexRouter);
