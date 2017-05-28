@@ -60,7 +60,7 @@ exports.essayNew = function(req, res) {
     EssayNewPost .fetch(function(err, result) {
         if(err) console.log(err)
         /* res.json(result[0]) */
-        let send = result[1].data
+        let send = result[2].data
         res.send(marked(send))
 
     })

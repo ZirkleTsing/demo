@@ -4,6 +4,7 @@
 let mongoose = require('mongoose')
 
 let EssayNewPostSchema = new mongoose.Schema({
+    title: String,
     data: String
 })
 
