@@ -4,6 +4,23 @@
 let express = require('express')
 let EssayModel = require('../models/essay')
 let EssayDetailModel = require('../models/essayDetail')
+let EssayNewPost = require('../models/newEssay')
+let marked = require('marked')
+let highlight = require('highlight.js')
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function (code) {
+        return highlight.highlightAuto(code).value;
+    },
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: false,
+    smartLists: true,
+    smartypants: false
+});
+
 
 // app get essays
 exports.essays = function(req, res) {
@@ -39,3 +56,12 @@ exports.essaysDetail = function(req, res) {
     })
 }
 
+exports.essayNew = function(req, res) {
+    EssayNewPost .fetch(function(err, result) {
+        if(err) console.log(err)
+        /* res.json(result[0]) */
+        let send = result[1].data
+        res.send(marked(send))
+
+    })
+}
