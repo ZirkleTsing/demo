@@ -60,8 +60,33 @@ exports.essayNew = function(req, res) {
     EssayNewPost.fetch(function(err, result) {
         if(err) console.log(err)
         /* res.json(result[0]) */
-        let send = result[0].data
-        res.send(marked(send))
+        /*let send = result[0].data*/
+        let target = result[1]
+        res.json(target)
 
     })
+}
+exports.essayCreate = function(req, res) {
+/*    console.log(req.body.text)*/
+    let text = req.body.text
+    let title = req.body.title
+    let targetObj = {
+        title: title,
+        data: text
+    }
+    EssayNewPost.create(targetObj).then(r => {
+        console.log('添加成功！')
+        res.json({
+            code: 200,
+            data: r
+        }).catch(r => {
+            console.log(r)
+            res.json({
+                code: 500,
+                message: '添加失败！'
+            })
+        })
+    })
+
+    /*EssayNewPost.create(req.body)*/
 }
